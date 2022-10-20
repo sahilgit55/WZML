@@ -419,7 +419,7 @@ def main():
     time = now.strftime('%I:%M:%S %p')
     notifier_dict = False
     if INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
-        if notifier_dict == DbManger().get_incomplete_tasks():
+        if notifier_dict := DbManger().get_incomplete_tasks():
             for cid, data in notifier_dict.items():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
